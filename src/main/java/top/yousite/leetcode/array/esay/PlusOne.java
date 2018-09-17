@@ -1,7 +1,9 @@
 package top.yousite.leetcode.array.esay;
 
 public class PlusOne {
-	
+	/**
+	 * 66. 加一
+	 * */
 	public int[] plusOne(int[] digits) {
         int length = digits.length;
         //判断数组的各个位是否为9，是的话变为0；否则+1
