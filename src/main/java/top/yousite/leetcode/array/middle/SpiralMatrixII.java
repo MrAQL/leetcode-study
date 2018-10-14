@@ -1,7 +1,7 @@
 package main.java.top.yousite.leetcode.array.middle;
 
 
-public class GenerateMatrix {
+public class SpiralMatrixII {
     /**
      * 59. 螺旋矩阵 II
      */
