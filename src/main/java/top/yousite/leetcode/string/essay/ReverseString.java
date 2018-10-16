@@ -30,6 +30,8 @@ public class ReverseString {
      * @return
      */
     public String reverseString(String s) {
+        if (s == null ||s.length()==0){return s;};
+
         char[]ch =s.toCharArray();
         int begin = 0;
         int end = ch.length -1;
