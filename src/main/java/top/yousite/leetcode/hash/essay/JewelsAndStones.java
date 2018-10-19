@@ -31,7 +31,7 @@ public class JewelsAndStones {
     public int numJewelsInStones(String J, String S){
         char [] Jewels = J.toCharArray();
         char [] Stones = S.toCharArray();
-        int resCount = 0
+        int resCount = 0;
         for (char stone :Stones){
             for (char jewel :Jewels){
                 if (stone == jewel){
