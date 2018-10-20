@@ -23,8 +23,10 @@ public class ReverseVowelsOfAString {
             }
             else if (judgeVowel(words[end])){
                 begin++;
-            }else{
+            }else if(judgeVowel(words[begin])){
                 end--;
+            }else{
+                begin++;end--;
             }
         }
         return new String(words);
