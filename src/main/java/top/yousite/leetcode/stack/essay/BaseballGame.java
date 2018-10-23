@@ -1,12 +1,15 @@
 package main.java.top.yousite.leetcode.stack.essay;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Stack;
 
 public class BaseballGame {
     /**
      * 682. 棒球比赛
      */
-    public int calPoints(String[] ops) {
+    //solve-1:stack
+    /*public int calPoints(String[] ops) {
         Stack<String> stack = new Stack<String>();
         for (String s :ops){
             if (s.equals("C")){
@@ -39,5 +42,35 @@ public class BaseballGame {
 
         }
         return result;
+    }*/
+
+
+    //solve-2:array
+    public int calPoints(String[] ops) {
+        List<Integer> list = new ArrayList<>();
+        int allScore =0;
+        for (String s:ops){
+            if (s.equals("C")){
+                list.remove(list.size() -1);
+            }
+            else if (s.equals("D")){
+                int lastScore= list.get(list.size()-1);
+                list.add(lastScore * 2);
+            }
+            else if (s.equals("+")){
+                int lastScore= list.get(list.size()-1);
+                int last_Second_Score= list.get(list.size()-2);
+                list.add(lastScore+last_Second_Score);
+            }else {
+                list.add(Integer.valueOf(s));
+            }
+
+        }
+
+        for (int i:list){
+            allScore+=i;
+        }
+        return allScore;
+
     }
 }
