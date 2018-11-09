@@ -16,8 +16,8 @@ public class BinaryTreeLevelOrderTraversalII {
         if (root ==null) return res;
         queue.offer(root);          //入队
         while (!queue.isEmpty()){
-            List<Integer> layRes  = new LinkedList<>();  //保存每一层的数
-            int size = queue.size();
+            List<Integer> layRes  = new LinkedList<>();  //保存每一层的结果
+            int size = queue.size();        //记录此层节点个数
             for (int i =0;i<size;i++){
                 TreeNode temp =queue.poll();    //出队
                 layRes.add(temp.val);
