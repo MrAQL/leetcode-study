@@ -31,6 +31,7 @@ public class BinaryTreeRightSideView {
         queue.offer(root);
         while (!queue.isEmpty()){
             int size = queue.size();
+                                        //这里维护多一个队列来取每行最后一个也可以
             for (int i = 0; i < size; i++) {
                 //逆序输出取第一个
                 TreeNode temp = queue.poll();
@@ -60,7 +61,7 @@ public class BinaryTreeRightSideView {
         dfs(res,root.left,depth+1);
     }
 
-    /**   BFS思路:逆序遍历每行取第一个元素
+    /**   BFS思路:逆序遍历每行取第一个元素（不这样的话，可以维护多一个队列来取每行最后一个）
      *
      *  *            1            <---
      *          *  /   \
