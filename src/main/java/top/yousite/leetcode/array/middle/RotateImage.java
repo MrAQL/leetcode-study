@@ -37,9 +37,11 @@ public class RotateImage {
          [1,2,3]   主对角线交换        [1,4,7]    以中间为对角线，进行交换   [7,4,1]
          [4,5,6]  ------------>      [2,5,8]    -------------------->  [8,5,2]
          [7,8,9]                     [3,6,9]                           [9,6,3]
-
-
          **/
+        /**
+          法三：（非原地算法）
+
+         * **/
         //法二:
         int size = matrix.length;
         //主对角线交换
@@ -57,6 +59,23 @@ public class RotateImage {
                 int temp = matrix[i][j];
                 matrix[i][j] = matrix[i][size-1-j];
                 matrix[i][size-1-j] = temp;
+            }
+        }
+
+        //法三（最后一行-->第一列）
+        int size = matrix.length;
+        int[][] res= new int[size][size];
+        for(int i=0;i<size;i++){
+            int k=0;
+            for(int j =0;j<size;j++){
+                res[k++][i] = matrix[size-1-i][j];
+            }
+        }
+
+
+        for(int i=0;i<size;i++){
+            for(int j =0;j<size;j++){
+                matrix[i][j] = res[i][j];
             }
         }
     }
