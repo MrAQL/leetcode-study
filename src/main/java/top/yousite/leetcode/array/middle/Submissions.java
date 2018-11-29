@@ -7,7 +7,7 @@ import java.util.Map;
 
 public class Submissions {
     /**
-     *
+     * 442. 数组中重复的数据
      */
     public List<Integer> findDuplicates(int[] nums) {
         //遍历过就取下标负，当下一次遍历到为负时就加入到结果中
@@ -24,7 +24,6 @@ public class Submissions {
         }
 
         return res;*/
-
 
         //法二(暴力) time:o(n), space(o(1))
         List<Integer> res = new ArrayList<>();
