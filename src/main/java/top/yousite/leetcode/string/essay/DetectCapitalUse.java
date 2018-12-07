@@ -25,7 +25,7 @@ public class DetectCapitalUse {
      * 输出: False
      */
 
-    public boolean detectCapitalUse(String word) {
+    /*public boolean detectCapitalUse(String word) {
         if (word == null || word.length() == 0) return true;
         char[]chars =word.toCharArray();
         //一位(永远true，无论是'A'或'a'都可以)
@@ -82,6 +82,19 @@ public class DetectCapitalUse {
     //非大写
     private boolean isNotBigCase(char ch){
         if(ch>'Z'){
+            return true;
+        }
+        return false;
+    }*/
+
+    //简化版
+    public boolean detectCapitalUse(String word) {
+        if (word.length() <2) return true;
+        //全大写
+        if (word.toUpperCase().equals(word)){
+            return true;
+        }
+        if(word.substring(1).toLowerCase().equals(word.substring(1))){
             return true;
         }
         return false;
