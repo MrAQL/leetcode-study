@@ -22,6 +22,44 @@ public class CourseScheduleII {
     public int[] findOrder(int numCourses, int[][] prerequisites) {
         //[1,0] 要学习课程 1，你需要先完成课程 0    0->1
         Queue<Integer> queue = new LinkedList<>();
+        int[]res = new int[numCourses];
+        int[]inDegree = new int[numCourses];
+        for(int[] temp: prerequisites ){
+            inDegree[temp[0]]++;
+        }
+        for (int i = 0; i < inDegree.length; i++) {
+            if (inDegree[i] == 0){
+                queue.offer(i);
+            }
+        }
+        int curZeroCount = queue.size();
+        int curResIndex=0;           //（结果集index）优化
+        while (!queue.isEmpty()){
+            //更新度
+            int leftNum = queue.poll();      //出队的数值
+            res[curResIndex++] = leftNum;
+            for (int i = 0; i < prerequisites.length; i++) {
+                if (leftNum == prerequisites[i][1]){
+                    inDegree[prerequisites[i][0]]--;
+                    if (inDegree[prerequisites[i][0]] == 0){
+                        curZeroCount++;
+                        queue.offer(prerequisites[i][0]);
+                    }
+                }
+            }
+        }
+
+        if (curZeroCount == numCourses){
+            return res;
+        }else{
+            return new int[]{};
+        }
+    }
+
+    //ArrayList存储,最终转为int;
+    /*public int[] findOrder(int numCourses, int[][] prerequisites) {
+        //[1,0] 要学习课程 1，你需要先完成课程 0    0->1
+        Queue<Integer> queue = new LinkedList<>();
         List<Integer> res= new ArrayList<>();
         int[]inDegree = new int[numCourses];
         for(int[] temp: prerequisites ){
@@ -57,5 +95,5 @@ public class CourseScheduleII {
         }else{
             return new int[]{};
         }
-    }
+    }*/
 }
