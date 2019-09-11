@@ -4,6 +4,7 @@ public class DefangIPaddr {
     /**
      * 1108. IP 地址无效化
      */
+    //思路:与leetcode空格替换那道题类似
     public String defangIPaddr(String address) {
         if (address == null ||address.length() ==0){
             return "";
